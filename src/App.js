@@ -1,25 +1,86 @@
-import logo from './logo.svg';
 import './App.css';
 
+import {useState} from 'react'
+
+
+
+
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+  const [person, setPerson]= useState([
+
+    {
+      id:1,
+      name: 'Arto hellas',
+    
+    },
+  
+  
+  ])
+
+  const [newName, setNewName]= useState('')
+  const [newNumber, setNewNumber]= useState('')
+
+  const handleChange= (event) => {
+  
+    setNewName(event.target.value)
+  }
+
+  const handleNumberChange= (event) => {
+  
+    setNewNumber(event.target.value)
+  }
+
+  const handleSubmit= (e) => {
+    e.preventDefault();
+    setPerson([...person, {id:newName, name:newName,}])
+    setNewName('')
+  }
+
+  
+
+
+
+  const handleNumberSubmit= (e) => {
+    e.preventDefault();
+    setPerson([...person, {id:newNumber, name:newNumber,}])
+    setNewNumber('')
+  }
+
+
+  return( 
+     <div>
+      <h2>Phonebook</h2>
+     
+      <form onSubmit={handleSubmit}  >
+        
+         <div> name: <input type={'text'} value={newName} onChange={handleChange} /> </div> 
+        <div  > number: <input type={'text'} value={newNumber}  onChange={handleNumberChange}/> </div>  
+         <div> <button type="submit">add</button> </div> 
+      
+      </form>
+      <h2>Numbers</h2>
+
+      <div> 
+      {person.map((items)=>(
+        <p key={items.id} > {items.name} </p>
+      ))}
+     </div>
+
+    
+    
+       {/* {alert(`${newName} is already added to phonebook`)} */}
+      {/*  > 
+      
+      
+       
+       <button type="submit">add</button>
+      
+      </form> */}
+
+      </div>
+)
+  
 }
 
 export default App;
