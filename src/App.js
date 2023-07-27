@@ -52,13 +52,15 @@ function App() {
      <div>
       <h2>Phonebook</h2>
      
-      <form onSubmit={handleSubmit}  >
+      <form onSubmit={handleSubmit} >
         
-         <div> name: <input type={'text'} value={newName} onChange={handleChange} /> </div> 
-        <div  > number: <input type={'text'} value={newNumber}  onChange={handleNumberChange}/> </div>  
-         <div> <button type="submit">add</button> </div> 
+         <div> name: <input type={'text'} value={newName} onChange={handleChange} /> </div>
       
       </form>
+     <form onSubmit={handleNumberSubmit}>
+      <div  > number: <input type={'text'} value={newNumber}  onChange={handleNumberChange}/> </div>
+      </form>
+      <div> <button type="submit">add</button> </div> 
       <h2>Numbers</h2>
 
       <div> 
