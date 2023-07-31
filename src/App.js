@@ -12,6 +12,7 @@ function App() {
     {
       id:1,
       name: 'Arto hellas',
+      number: '09022064453'
     
     },
   
@@ -65,7 +66,7 @@ function App() {
 
       <div> 
       {person.map((items)=>(
-        <p key={items.id} > {items.name} </p>
+        <p key={items.id} > {items.name}  {items.number} </p>
       ))}
      </div>
 
@@ -86,3 +87,6 @@ function App() {
 }
 
 export default App;
+
+
+
